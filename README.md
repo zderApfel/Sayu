@@ -1,12 +1,8 @@
 <h1>Sayu, the bot that speaks for you</h1>
 
-Hello there! This is Sayu, my first ever Discord bot utilizing the Discordjs library. It's a very simple bot that takes a private message from a user and relays it into a channel. The user and the channel IDs are determined in the config.json file in this repo.
+Hello there! This is Sayu, my first ever Discord bot utilizing the Discordjs library. It's a very simple bot that takes a private message from a user and relays it into a channel. The user and the channel IDs are determined in the config.json file in this repo. 
 
 <h2>Version History</h2>
-
-<h3>1.0.1</h3>
-
-* Re-configured for hosting on Heroku
 
 <h3>1.0</h3>
 
