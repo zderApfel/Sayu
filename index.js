@@ -1,6 +1,3 @@
-/*
-  This is currently factored for hosting through Heroku, if hosting through other means, refactor "process.env" to "config" in the three parameters.
-*/
 
 const Discord = require("discord.js"); //Initialization
 const client = new Discord.Client();
@@ -8,8 +5,8 @@ const client = new Discord.Client();
 const config = require("./config/config.json"); //Configuration file for hidden parameters
 
 //Parameters
-const botToken = process.env.BOT_TOKEN; //Bot token
-const userID = process.env.userID; //Person bot will be listening to messages from
+const botToken = config.BOT_TOKEN; //Bot token
+const userID = config.userID; //Person bot will be listening to messages from
 
 
 client.on("ready", () => {
@@ -23,7 +20,7 @@ client.on("ready", () => {
 });
 
 client.on("message", (message) => {
-  let sendTo = client.channels.get(process.env.channelID);
+  let sendTo = client.channels.get(config.channelID);
   if(message.author.id == userID && message.channel instanceof Discord.DMChannel){
     sendTo.send(message.content);
   }
