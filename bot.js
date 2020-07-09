@@ -4,8 +4,8 @@ const client = new Discord.Client();
 const config = require("./config/config.json"); //Configuration file for hidden parameters
 
 //Parameters
-const botToken = config.token; //Bot token
-const userID = config.userID; //Person bot will be listening to messages from
+const botToken = process.env.token; //Bot token
+const userID = process.env.userID; //Person bot will be listening to messages from
 
 
 client.on("ready", () => {
@@ -19,7 +19,7 @@ client.on("ready", () => {
 });
 
 client.on("message", (message) => {
-  let sendTo = client.channels.get(config.channelID);
+  let sendTo = client.channels.get(process.env.channelID);
   if(message.author.id == userID && message.channel instanceof Discord.DMChannel){
     sendTo.send(message.content);
   }
