@@ -4,10 +4,6 @@ Hello there! This is Sayu, my first ever Discord bot utilizing the Discordjs lib
 
 <h2>Version History</h2>
 
-<h3>1.0.2</h3>
-
-* Removed Heroku hosting factoring
-
 <h3>1.0.1</h3>
 
 * Refactored for hosting through Heroku, directions for personal hosting through config.json in block comment
