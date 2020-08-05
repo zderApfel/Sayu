@@ -23,17 +23,21 @@ client.on("message", (message) => {
   
   //client.channels.cache.get()
   if(message.author.id == userID && message.channel instanceof Discord.DMChannel){
-    if (message.content.startsWith("!help") == true){
-      client.users.cache.get(userID).send("This will be a help message");
+    if (message.content.startsWith("!") == true){
+      if (message.content.startsWith("!help") == true){  
+        client.users.cache.get(userID).send("This will be a help message");
+      }
+      else{
+        for (x in chanList){
+          if (message.content.startsWith(`!${chanList[x].name}`) == true){ //But this one doesn't
+            let sendTo = client.channels.cache.get(chanList[x].id); //Neither does this one
+            sendTo.send(message.content);
+          }
+        }
+      }
     }
     else {
       client.users.cache.get(userID).send("Sorry, I don't understand you, type !help for the list of commands I can understand");
-    }
-    for (x in chanList){
-      if (message.content.startsWith(`!${chanList[x].name}`) == true){ //But this one doesn't
-        let sendTo = client.channels.cache.get(chanList[x].id); //Neither does this one
-        sendTo.send(message.content);
-      }
     }
   }
 })
