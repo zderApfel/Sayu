@@ -23,7 +23,8 @@ client.on("message", (message) => {
   if(message.author.id == userID && message.channel instanceof Discord.DMChannel){
     let commandSuccess = false;
     if (message.content.startsWith("!") == true){
-      if (message.content.startsWith("!help") == true){  
+      if (message.content.startsWith("!help") == true){
+        commandSuccess = true;  
         client.users.cache.get(userID).send("This will be a help message");
       }
       else{
@@ -33,12 +34,9 @@ client.on("message", (message) => {
             commandSuccess = true;
           }
         }
-        if (commandSuccess == false){
-          client.users.cache.get(userID).send("Sorry, I don't understand you, type !help for the list of commands I can understand");
-        }
       }
     }
-    else{
+    if (commandSuccess == false){
       client.users.cache.get(userID).send("Sorry, I don't understand you, type !help for the list of commands I can understand");
     }
   }
