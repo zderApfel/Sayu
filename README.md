@@ -42,7 +42,7 @@ Inside `config.json`, copy and paste this text:
 Let me go over real quick what each of these fields mean:
 
 * `"TOKEN"`: The bot token, this is created when you make a new bot user. You are required to make a bot user if you want to host it. [Here's a tutorial on how to do that](https://discordpy.readthedocs.io/en/latest/discord.html).
-* `"USERID"`: The ID of the user who the bot will be listening to. Currently Sayu only accepts input from one user at a time. In order to get this ID, you will need to install [Discord's developer mode](https://discordia.me/en/developer-mode#:~:text=Enabling%20Developer%20Mode%20on%20Desktop,the%20toggle%20to%20enable%20it.).
+* `"USERID"`: The ID of the user who the bot will be listening to. Currently Sayu only accepts input from one user at a time. In order to get this ID, you will need to activate [Discord's developer mode](https://discordia.me/en/developer-mode#:~:text=Enabling%20Developer%20Mode%20on%20Desktop,the%20toggle%20to%20enable%20it.).
 * `"CHANNELS"`: This one seems a bit complicated but it's actually really simple. Notice the curly braces ( {} )? The contents of each pair of curly braces is an `object`, and in this case, each of these objects signify a channel in the server that Sayu can talk in. (Fun fact, the `"TOKEN"`, `"USERID"`, and `"CHANNELS"` are all objects as well!). Each of those requires two data parameters:
     - `"name"`: This can be anything, but I recommend keeping it short and distinctive as this will also serve as the command prefix for the command to post in a channel
     - `"id"`: The ID of the channel, this is acquired the same way as you did with `"USERID"`;
