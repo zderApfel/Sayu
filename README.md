@@ -29,7 +29,7 @@ In the same folder you have `index.js` and this file, add a folder and name it `
 In this folder, make a file called `config.json`, CASE ALSO MATTERS.
 Inside `config.json`, copy and paste this text:
 ```JSON
-    {
+{
     "TOKEN": "",
     "USERID": "",
     "CHANNELS": [
