@@ -2,14 +2,10 @@
 
 Hello there! This is Sayu, my first ever Discord bot utilizing the Discordjs library. It's a very simple bot that takes a private message from a user and relays it into a channel. The user and the channel IDs are determined in the config.json file in this repo. 
 
-####Table of contents
-
 1. [Version History](#section1)
-    -[1.1](#1.1)
-    -[1.0](#1.0)
+    *[1.1](#1.1)
+    *[1.0](#1.0)
 2. [Config Setup](#section2)
-    -[Local Setup](#local)
-    -[Tweeking](#tweeking)
 3. [Possible Future Features](#section3)
 
 <h2 id="section1">Version History</h2>
