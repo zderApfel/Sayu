@@ -7,11 +7,11 @@ const config = require("./config/config.json"); //Configuration file for hidden 
 //Parameters
 const botToken = config.TOKEN; //Bot token
 const userID = config.USERID; //Person bot will be listening to messages from 
-const chanList = config.CHANNELS;
+const chanList = config.CHANNELS; //Array
 
 client.on("ready", () => {
   console.log("Bot has logged in");
-  if(client.users.cache.get(userID) != undefined){ //Prevent crash due to invalid userID
+  if(client.users.cache.get(userID) != undefined){ //Prevent crashes from invalid userID
     client.users.cache.get(userID).send("I AWAKEN. I can now send messages to multiple channels! Type !help for info!");
   }
   else{
@@ -26,9 +26,6 @@ client.on("message", (message) => {
       command = getCommand(message.content);
       setCommand(command, message.content);
     }
-      //client.users.cache.get(userID).send("This will be a help message");
-      //client.users.cache.get(userID).send("Sorry, I don't understand you, type !help for the list of commands I can understand");
-      //client.channels.cache.get(`channel id`).send("");
   }
 })
 
@@ -39,7 +36,7 @@ function getCommand(text){
 
 function setCommand(comm, fullMessage){
   if (comm == "!help"){
-    return client.users.cache.get(userID).send("This will be a help message");
+    return client.users.cache.get(userID).send(makeHelpMessage());
   }
   for (x in chanList){
     if (comm == `!${chanList[x].name.toLowerCase()}`){
@@ -49,5 +46,19 @@ function setCommand(comm, fullMessage){
   client.users.cache.get(userID).send("Sorry, I don't understand you, type !help for the list of commands I can understand");
 }
 
-client.login(botToken); //Edit token in config.json
+function makeHelpMessage(){
+  let setHelpMessage = `
+**-Base Commands-** These serve basic functions
+
+* !help - Shows this help message
+
+**-Channel Commands-** Use these before a message to specify the channel you want me to post in\n
+`;
+  for (x in chanList){
+    setHelpMessage = setHelpMessage+`* !${chanList[x].name.toLowerCase()}\n`;
+  }
+  return setHelpMessage;
+}
+
+client.login(botToken);
 
